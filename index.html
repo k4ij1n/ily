@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shogarpiehoneybunchpumiyampiyamkin</title>
+    <style>
+        body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0 20px; 
+			background-image: url('BG.png');
+			background-size: cover;
+			font-family: 'Comic Sans MS', cursive;
+		}
+
+		h1, form {
+			color: white;
+			text-align: center; 
+			margin-left: 30%; 
+		}
+
+		form {
+			max-width: 300px;
+			margin-left: 30%;
+			
+		}
+		input[type="text"] {
+            background-color: transparent; 
+            color: white; 
+            border: 1px solid white; 
+            padding: 5px; 
+            margin-bottom: 10px; 
+        }
+		
+		input[type="submit"] {
+            background-color: #ea2350; 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            cursor: pointer; 
+			border-radius: 5px;
+			font-family: 'Comic Sans MS', cursive;
+        }
+
+        img {
+            width: 100%; 
+            max-width: 450px; 
+            height: auto; 
+            position: absolute; 
+            top: 30%; 
+            left: 20%; 
+            z-index: 0; 
+			border-radius: 5px;
+        }
+		
+		button.music-button {
+			background: none;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+			display: inline-block;
+		}
+
+		button.music-button img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+			border-radius: 50%;
+			display: inline-block; 
+			text-align: center;
+		}
+    </style>
+</head>
+<body>
+
+    <h1>Enter Passcode</h1>
+    
+    <form id="passcodeForm" onsubmit="checkPasscode(); return false;">
+        <label for="passcode">Passcode:</label>
+        <input type="text" id="passcode" required>
+        <br>
+        <p>Hint: The most important day <br>(month/day/year)</p>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    
+    <img src="vd.gif" alt="bbqouh">
+	
+	
+	<button class="music-button" onclick="toggleBackgroundMusic()">
+        <img src="but.png" alt="Music Button" title="Click me to play music">
+		
+    </button>
+
+    
+    <audio id="myAudio" controls style="display: none;">
+        <source src="bgsong.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+  
+	
+	
+
+    <script>
+        function checkPasscode() {
+            var userPasscode = document.getElementById("passcode").value;
+
+            
+            if (userPasscode === "10082022") {
+                
+                window.location.href = "page1.html";
+            } else {
+                alert("Incorrect passcode. BSHIT!!! Anu b tung tao na tu.");
+            }
+        }
+		
+		function toggleBackgroundMusic() {
+            var audio = document.getElementById("myAudio");
+            audio.paused ? audio.play() : audio.pause();
+        }
+		
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random blabs</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0 20px; 
+            background-image: url('BG.png');
+            background-size: cover;
+            font-family: 'Comic Sans MS', cursive;
+            overflow: hidden;
+        }
+
+        button.music-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: inline-block;
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button.music-button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            display: inline-block; 
+            text-align: center;
+        }
+
+        .button-top-right {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-decoration: none; 
+            border-radius: 5%;
+        }
+
+        .random-letter-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; 
+            border-radius: 10%;
+            max-width: 7%;
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            font-size: 14px;
+        }
+
+        .rectangle p {
+            text-align: center;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+        }
+    </style>
+</head>
+<body>
+
+    <button class="music-button" onclick="toggleBackgroundMusic()">
+        <img src="but.png" alt="Music Button" title="Click me to play music">
+    </button>
+    
+    <a href="page1.html" class="button-top-right">Back</a>
+
+    <div class="rectangle">
+        <p>Forda most handsome, goodest boi in the world (˵ •̀ ᴗ - ˵ ) ✧</p>
+        <button class="random-letter-button" onclick="generateRandomLetter()">Click me for random letters</button>
+    </div>
+
+    <audio id="myAudio" controls style="display: none;">
+        <source src="daylight.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function toggleBackgroundMusic() {
+            var audio = document.getElementById("myAudio");
+            audio.paused ? audio.play() : audio.pause();
+        }
+
+        var phrases = [
+            "I love you always langging! ( ˘͈ ᵕ ˘͈♡)",
+            "I'm blessed that you came into my life (づ ᴗ _ᴗ)づ♡",
+            "you are the most handsome wanderpul and wittiest person I have ever met and I will never find anyone like you ε(´｡•᎑•`)っ 💕",
+            "kiss q bih ( •̯́ ₃ •̯̀)",
+            "I love you and only you, omki??? ⸜(｡˃ ᵕ ˂ )⸝♡₊˚⊹♡",
+            "I am always and forever proud of you dong. Always remember, even in ur worst times, I could see the best in you -tilur sweap",
+			"I don't wanna look at anything else now that I saw you. I don't wanna think of anything else now that I thought of you (˳˘ ɜ˘)˳ ♬♪♫",
+			"ugh buy nauwaw na q (づ_ど)"
+	
+        ];
+
+        var currentPhraseIndex = 0;
+
+        function generateRandomLetter() {
+            var randomPhrase = phrases[currentPhraseIndex];
+
+            document.querySelector('.rectangle p').innerText = randomPhrase;
+
+            
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        }
+
+    </script>
+
+</body>
+</html>
